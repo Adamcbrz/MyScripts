@@ -1,6 +1,6 @@
 handlers.GetUsers = function (args) {
 	var playerids = args.playerids;
-	return {args};
+	return {args:args};
 	//var playersData = [];
 	//for(var i = 0; i < playerids.length; i++)
 	//{
