@@ -2,8 +2,11 @@ handlers.GetUsers = function (args) {
 	var playerids = args.playerids;
 	var playersData = [];
 	for(var i = 0; i < playerids.length; i++)
-	{
-         playersData[i] = { PlayFabId: playerids[i], server.GetUserAccountInfo({PlayFabId: playerids[i]}).UserInfo.TitleInfo.DisplayName};
+	{               
+		var data = {};
+		data.PlayFabId = playerids[i];
+		data.DisplayName = server.GetUserAccountInfo({PlayFabId: playerids[i]}).UserInfo.TitleInfo.DisplayName;
+        playersData[i] = data;
 	}
 	
 	return playersData;
