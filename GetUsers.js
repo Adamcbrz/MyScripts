@@ -5,7 +5,9 @@ handlers.GetUsers = function (args) {
 	{               
 		var data = {};
 		data.PlayFabId = playerids[i];
-		data.DisplayName = "test";//server.GetUserAccountInfo({PlayFabId: playerids[i]}).UserInfo.TitleInfo.DisplayName;
+		data.DisplayName = server.GetUserAccountInfo({PlayFabId: playerids[i]}).UserInfo.TitleInfo.DisplayName;
+		if(!data.DisplayName)
+			data.DisplayName = null;
         playersData[i] = data;
 	}
 	
